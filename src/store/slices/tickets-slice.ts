@@ -16,15 +16,18 @@ const initialState: TicketsState = {
   tickets: [],
 };
 
-export const fetchTickets = createAsyncThunk('tickets/fetchTickets', async (searchId: string) => {
-  const response: TicketType[] | undefined = await getAllTickets(searchId);
+export const fetchTickets = createAsyncThunk(
+  'tickets/fetchTickets',
+  async (searchId: string) => {
+    const response: TicketType[] | undefined = await getAllTickets(searchId);
 
-  if (response) {
-    return response;
+    if (response) {
+      return response;
+    }
+
+    throw new Error('cant get Tickets');
   }
-
-  throw new Error('cant get Tickets');
-});
+);
 
 export const counterSlice = createSlice({
   name: 'tickets',
@@ -35,9 +38,12 @@ export const counterSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchTickets.fulfilled, (state, action: PayloadAction<TicketType[]>) => {
-      state.tickets = [...state.tickets, ...action.payload];
-    });
+    builder.addCase(
+      fetchTickets.fulfilled,
+      (state, action: PayloadAction<TicketType[]>) => {
+        state.tickets = [...state.tickets, ...action.payload];
+      }
+    );
   },
 });
 

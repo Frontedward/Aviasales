@@ -35,7 +35,8 @@ export const filterSlice = createSlice({
   },
 });
 
-export const { setFilter, changeFilter, changeAllFilters } = filterSlice.actions;
+export const { setFilter, changeFilter, changeAllFilters } =
+  filterSlice.actions;
 
 export const selectFilters = (state: RootState) => state.filters.filters;
 
