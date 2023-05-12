@@ -4,7 +4,10 @@ import { StyledSidebar } from './sidebar.styles';
 import { useAppDispatch } from '../../store/hooks';
 import { useDefaultFilters } from '../../hooks/default-filters';
 import { nanoid } from '@reduxjs/toolkit';
-import { changeAllFilters, changeFilter } from '../../store/slices/filter-slice';
+import {
+  changeAllFilters,
+  changeFilter,
+} from '../../store/slices/filter-slice';
 
 export const Sidebar = () => {
   const dispatch = useAppDispatch();
@@ -24,13 +27,24 @@ export const Sidebar = () => {
   };
 
   const FiltersElems = filters.map((el) => (
-    <Filter key={el.id} label={el.label} active={el.active} onFilterToggle={filterToggle} id={el.id} />
+    <Filter
+      key={el.id}
+      label={el.label}
+      active={el.active}
+      onFilterToggle={filterToggle}
+      id={el.id}
+    />
   ));
 
   return (
     <StyledSidebar>
       <h3 className={'filters-title'}>Количество пересадок</h3>
-      <Filter label={'Все'} active={allFilterActive} onFilterToggle={toggleAllFilters} id={nanoid()} />
+      <Filter
+        label={'Все'}
+        active={allFilterActive}
+        onFilterToggle={toggleAllFilters}
+        id={nanoid()}
+      />
       {FiltersElems}
     </StyledSidebar>
   );

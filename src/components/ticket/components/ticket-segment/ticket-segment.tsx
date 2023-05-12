@@ -1,6 +1,10 @@
 import React, { useMemo } from 'react';
 
-import { StyledTickedSegmentCol, StyledTicketSegment, TicketSegmentStyles } from './ticket-segment.styles';
+import {
+  StyledTickedSegmentCol,
+  StyledTicketSegment,
+  TicketSegmentStyles,
+} from './ticket-segment.styles';
 import { TicketSegmentType } from '../../../../types/tickets';
 
 const getTime = (date: Date) => {
@@ -9,7 +13,10 @@ const getTime = (date: Date) => {
 
   return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
 };
-const getStartEndTime: (start: Date, duration: number) => [string, string] = (start, duration) => {
+const getStartEndTime: (start: Date, duration: number) => [string, string] = (
+  start,
+  duration
+) => {
   const durationInMs = duration * 60 * 1000;
   const end = new Date(durationInMs + start.getTime());
 
@@ -56,9 +63,16 @@ type Props = TicketSegmentStyles & TicketSegmentType;
 export const TicketSegment = (props: Props) => {
   const { origin, destination, date, stops, duration } = props;
 
-  const times = useMemo<[string, string]>(() => getStartEndTime(new Date(date), duration), [date, duration]);
+  const times = useMemo<[string, string]>(
+    () => getStartEndTime(new Date(date), duration),
+    [date, duration]
+  );
   const stopsString = useMemo<string>(() => {
-    return `${stops.length} ${declOfNum(stops.length, ['пересадка', 'пересадки', 'пересадок'])}`;
+    return `${stops.length} ${declOfNum(stops.length, [
+      'пересадка',
+      'пересадки',
+      'пересадок',
+    ])}`;
   }, stops);
 
   return (

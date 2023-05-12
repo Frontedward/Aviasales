@@ -24,7 +24,7 @@
   ],
   "rules": {
     "prettier/prettier": "error",
-    "react/prop-types": 0
-//    "@typescript-eslint/no-explicit-any": "off"
+    "react/prop-types": 0,
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }

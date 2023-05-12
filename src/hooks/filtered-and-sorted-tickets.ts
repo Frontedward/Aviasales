@@ -13,7 +13,9 @@ export const useFilteredAndSortedTickets = () => {
   const filters = useAppSelector(selectFilters);
   const activeSort = useAppSelector(selectSortType);
 
-  const [filteredAndSortedTickets, setFilteredAndSorted] = useState<TicketType[]>([]);
+  const [filteredAndSortedTickets, setFilteredAndSorted] = useState<
+    TicketType[]
+  >([]);
 
   useEffect(() => {
     const activeFilters = filters.filter((filter) => filter.active);

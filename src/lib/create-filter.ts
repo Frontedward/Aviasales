@@ -3,7 +3,11 @@ import { nanoid } from '@reduxjs/toolkit';
 
 type CreateFilterType = (initial: FilterInitialType) => FilterType;
 
-export const createFilter: CreateFilterType = ({ label, filterType, filterPayload }) => {
+export const createFilter: CreateFilterType = ({
+  label,
+  filterType,
+  filterPayload,
+}) => {
   return {
     id: nanoid(),
     label,

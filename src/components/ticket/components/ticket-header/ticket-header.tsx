@@ -1,5 +1,9 @@
 import React, { useMemo } from 'react';
-import { StyledTicketHeader, StyledTicketHeaderPrice, TicketHeaderStyles } from './ticket-header.styles';
+import {
+  StyledTicketHeader,
+  StyledTicketHeaderPrice,
+  TicketHeaderStyles,
+} from './ticket-header.styles';
 
 type Props = TicketHeaderStyles & {
   price: number;
@@ -24,7 +28,7 @@ export const TicketHeader = (props: Props) => {
   return (
     <StyledTicketHeader {...otherProps}>
       <StyledTicketHeaderPrice>{priceStr} Р</StyledTicketHeaderPrice>
-      <img src={imgSrc} alt="" />
+      <img src={imgSrc} alt='' />
     </StyledTicketHeader>
   );
 };

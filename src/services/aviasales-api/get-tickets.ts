@@ -13,7 +13,9 @@ export const getTickets = async (searchId: string) => {
 
 let errorCount = 0;
 
-export async function getAllTickets(searchId: string): Promise<TicketType[] | undefined> {
+export async function getAllTickets(
+  searchId: string
+): Promise<TicketType[] | undefined> {
   try {
     const response = await getTickets(searchId);
 

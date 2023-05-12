@@ -13,7 +13,7 @@ export const defaultTheme: DefaultTheme = {
 
 export const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
   body {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     padding: 0 0 50px;
     margin: 0;
     background: ${({ theme }) => theme.thirdLight};

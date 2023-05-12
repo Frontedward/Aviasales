@@ -1,5 +1,9 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { StyledMain, StyledMainTitle, StyledShowMoreButton } from './main.styles';
+import {
+  StyledMain,
+  StyledMainTitle,
+  StyledShowMoreButton,
+} from './main.styles';
 import { Tabs } from '../tabs/tabs';
 import { Ticket } from '../ticket/ticket';
 import { useAppDispatch } from '../../store/hooks';
@@ -15,7 +19,9 @@ export const Main = () => {
   const dispatch = useAppDispatch();
 
   const visibleTickets = filteredAndSortedTickets.slice(0, maxVisible);
-  const ticketsElems: ReactNode = visibleTickets.map((el, i) => <Ticket key={`${el.carrier}_${i}`} {...el} />);
+  const ticketsElems: ReactNode = visibleTickets.map((el, i) => (
+    <Ticket key={`${el.carrier}_${i}`} {...el} />
+  ));
 
   useEffect(() => {
     createSearch().then(({ searchId }) => {
@@ -42,7 +48,9 @@ export const Main = () => {
   if (!filteredAndSortedTickets.length) {
     return (
       <StyledMain>
-        <StyledMainTitle className={'cant-find'}>Мы ничего не нашли</StyledMainTitle>
+        <StyledMainTitle className={'cant-find'}>
+          Мы ничего не нашли
+        </StyledMainTitle>
       </StyledMain>
     );
   }
@@ -51,7 +59,9 @@ export const Main = () => {
     <StyledMain>
       <Tabs />
       {ticketsElems}
-      <StyledShowMoreButton onClick={() => setMaxVisible(maxVisible + 5)}>Показать еще 5 билетов!</StyledShowMoreButton>
+      <StyledShowMoreButton onClick={() => setMaxVisible(maxVisible + 5)}>
+        Показать еще 5 билетов!
+      </StyledShowMoreButton>
     </StyledMain>
   );
 };

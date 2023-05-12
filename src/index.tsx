@@ -7,7 +7,9 @@ import App from './components/app/app';
 import { GlobalStyles, defaultTheme } from './index.styles';
 import { store } from './store/store';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
 
 root.render(
   <Provider store={store}>

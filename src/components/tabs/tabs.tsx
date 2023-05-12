@@ -15,10 +15,18 @@ export const Tabs = () => {
   const activeSort = useAppSelector(selectSortType);
   const dispatch = useAppDispatch();
 
-  const sortChangeHandler = (sortType: SortTypes) => dispatch(setSortType(sortType));
+  const sortChangeHandler = (sortType: SortTypes) =>
+    dispatch(setSortType(sortType));
 
   const tabsElems = sorts.map((el) => {
-    return <Tab key={`tab_${el.name}`} {...el} active={el.name === activeSort} onSortChange={sortChangeHandler} />;
+    return (
+      <Tab
+        key={`tab_${el.name}`}
+        {...el}
+        active={el.name === activeSort}
+        onSortChange={sortChangeHandler}
+      />
+    );
   });
 
   return <StyledTabs>{tabsElems}</StyledTabs>;
