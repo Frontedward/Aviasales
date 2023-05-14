@@ -75,5 +75,5 @@ export const StyledLoader = styled.div<LoaderStyles>`
 StyledLoader.defaultProps = {
   tooltip: '',
   size: 200,
-  stroke: 6,
+  stroke: 3,
 };

@@ -49,7 +49,7 @@ export const Main = () => {
     return (
       <StyledMain>
         <StyledMainTitle className={'cant-find'}>
-          Мы ничего не нашли
+          Рейсов, подходящих под заданные фильтры, не найдено
         </StyledMainTitle>
       </StyledMain>
     );
