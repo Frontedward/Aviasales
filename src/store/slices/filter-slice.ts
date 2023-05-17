@@ -1,9 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
-import { FilterType, FilterInitialType } from '../../types/filters';
-import { createFilter } from '../../lib/create-filter';
-import { NanoId } from '../../types/core';
+import { FilterType, FilterInitialType } from '../../types/types';
+import { nanoid } from '@reduxjs/toolkit';
+import { NanoId } from '../../types/types';
+
+type CreateFilterType = (initial: FilterInitialType) => FilterType;
+
+export const createFilter: CreateFilterType = ({ label, filterType, filterPayload }) => {
+  return {
+    id: nanoid(),
+    label,
+    filterType,
+    filterPayload,
+    active: false,
+  };
+};
 
 type FilterState = {
   filters: FilterType[];
@@ -26,7 +38,7 @@ export const filterSlice = createSlice({
         active: action.payload === filter.id ? !filter.active : filter.active,
       }));
     },
-    changeAllFilters: (state, action) => {
+    changeAllTickets: (state, action) => {
       state.filters = state.filters.map((filter) => ({
         ...filter,
         active: action.payload,
@@ -35,8 +47,7 @@ export const filterSlice = createSlice({
   },
 });
 
-export const { setFilter, changeFilter, changeAllFilters } =
-  filterSlice.actions;
+export const { setFilter, changeFilter, changeAllTickets } = filterSlice.actions;
 
 export const selectFilters = (state: RootState) => state.filters.filters;
 

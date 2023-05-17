@@ -1,20 +1,27 @@
-import React from 'react';
-import { TicketType } from '../../types/tickets';
-import { TicketHeader } from './components/ticket-header/ticket-header';
-import { TicketSegment } from './components/ticket-segment/ticket-segment';
-import { StyledTicked, TicketStyles } from './ticket.styles';
+import React from "react";
 
-type Props = TicketType & TicketStyles;
-export const Ticket = (props: Props) => {
+import './ticket.css';
+import TicketSegment from "./ticket-segment";
+import { TicketType } from "../../types/types";
+
+const Ticket = (props: TicketType) => {
   const { price, carrier, segments } = props;
-  const segmentsElems = segments.map((segment, i) => {
-    return <TicketSegment key={`${segment.destination}_${i}`} {...segment} />;
-  });
+  const [startEnd, endStart] = segments;
 
   return (
-    <StyledTicked>
-      <TicketHeader price={price} carrier={carrier} margin={'0 0 20px'} />
-      {segmentsElems}
-    </StyledTicked>
-  );
-};
+    <div className='column_tickets ticket'>
+      <div className='ticket_header'>
+        <p className='ticket_price'>{price} Р</p>
+        <div className='ticket_lines-logo'>
+          <img src={`https://pics.avs.io/99/36/${carrier}.png`}  alt=''/>
+        </div>
+      </div>
+      <div className='ticket_body'>
+        <TicketSegment {...startEnd} />
+        <TicketSegment {...endStart} />
+      </div>
+    </div>
+  )
+}
+
+export default Ticket;

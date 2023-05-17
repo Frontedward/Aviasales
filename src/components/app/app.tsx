@@ -1,23 +1,30 @@
-import React, { useEffect } from 'react';
-import { Styles, StyledApp } from './app.styles';
+import React, { useState } from 'react';
+import { AsideFilters } from '../aside-filters/aside-filters';
+import { HeadSorts } from '../head-sorts/head-sorts';
+import TicketList from '../ticket-list/ticket-list';
+import './App.css';
 
-import { Header } from '../header/header';
-import { Content } from '../content/content';
-import { createSearch } from '../../services/aviasales-api/create-search';
+const logo = './logo.scg';
 
-type Props = Styles;
-
-const App = (props: Props) => {
-  useEffect(() => {
-    createSearch();
-  }, []);
+function App() {
+  const [btnPage, setBtnPage] = useState(1);
+  const showMore = () => setBtnPage((btnPage) + 1);
 
   return (
-    <StyledApp {...props}>
-      <Header />
-      <Content />
-    </StyledApp>
+    <div className="App">
+      <header className="App-header">
+        <img className="App-logo" src={logo} alt='' />
+      </header>
+      <div className='content'>
+        <AsideFilters />
+        <div className='column'>
+          <HeadSorts />
+          <TicketList props={btnPage} />
+          <button onClick={showMore} className='column_button button-show-more'>показать еще 5 билетов</button>
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
 export default App;
