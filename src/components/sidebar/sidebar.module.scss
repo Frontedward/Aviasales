@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+
+.checkboxes {
+  background-color: #FFFFFF;
+  width: 232px;
+  height: 252px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 20px;
+
+  &__header {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #4A4A4A;
+  }
+
+  &__label {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: #4A4A4A;
+    position: relative;
+    width: auto;
+    height: 40px;
+    display: flex;
+    padding-left: 50px;
+    margin-bottom: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    align-items: center;
+
+    &:hover {
+      background-color: #F1FCFF;
+    }
+
+    &:focus-visible {
+      outline: 1px solid #2196F3;
+      outline-offset: 2px;
+    }
+  }
+
+  input:checked ~ .checkmark:after {
+    display: block;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.28571 8L0 4.16123L1.20857 3.0787L4.28571 5.82726L10.7914 0L12 1.09021L4.28571 8Z' fill='%232196F3'/%3E%3C/svg%3E%0A");
+    width: 12px;
+    height: 8px;
+    transform: rotate(0deg);
+  }
+
+  input[type=checkbox] {
+    appearance: none;
+  }
+
+  input[type=checkbox]:focus-visible{
+
+  }
+
+  .checkmark:after {
+    left: 4px;
+    top: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.checkmark {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  height: 19px;
+  width: 19px;
+  background-color: #FFFFFF;
+  border: 1px #9ABBCE solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}

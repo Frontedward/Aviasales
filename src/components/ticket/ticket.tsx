@@ -1,27 +1,49 @@
-import React from "react";
+import FlyInfo from '../flyinfo/FlyInfo'
+import styles from './ticket.module.scss'
 
-import './ticket.css';
-import TicketSegment from "./ticket-segment";
-import { TicketType } from "../../types/types";
-
-const Ticket = (props: TicketType) => {
-  const { price, carrier, segments } = props;
-  const [startEnd, endStart] = segments;
-
+export interface TicketType {
+  carrier: string
+  price: number
+  segments: [
+    {
+      origin: string
+      destination: string
+      date: string
+      stops: string[]
+      duration: number
+    },
+    {
+      origin: string
+      destination: string
+      date: string
+      stops: string[]
+      duration: number
+    },
+  ]
+}
+function Ticket({ carrier, price, segments }: TicketType) {
   return (
-    <div className='column_tickets ticket'>
-      <div className='ticket_header'>
-        <p className='ticket_price'>{price} Р</p>
-        <div className='ticket_lines-logo'>
-          <img src={`https://pics.avs.io/99/36/${carrier}.png`}  alt=''/>
-        </div>
+    <div className={styles.ticket}>
+      <div className={styles.header}>
+        <span className={styles.header__price}>{price} ₽</span>
+        <img src={`https://pics.avs.io/99/36/${carrier}.png`} alt={`${carrier}`} />
       </div>
-      <div className='ticket_body'>
-        <TicketSegment {...startEnd} />
-        <TicketSegment {...endStart} />
+      <div className={styles.info}>
+        {segments.map((segment, index) => {
+          return (
+            <FlyInfo
+              key={index}
+              origin={segment.origin}
+              destination={segment.destination}
+              date={segment.date}
+              stops={segment.stops}
+              duration={segment.duration}
+            />
+          )
+        })}
       </div>
     </div>
   )
 }
 
-export default Ticket;
+export default Ticket

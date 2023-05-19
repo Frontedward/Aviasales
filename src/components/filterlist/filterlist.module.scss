@@ -1,0 +1,19 @@
+.filter {
+  border: 1px groove #DFE5EC;
+  border-radius: 5px;
+  overflow: hidden;
+  box-sizing: content-box;
+  margin-bottom: 20px;
+  cursor: pointer;
+  max-width: 500px;
+  min-width: 100%;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #2196F3;
+  color: #FFFFFF;
+}

@@ -1,0 +1,44 @@
+.text {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px 20px;
+  background-color: #2196F3;
+  border: none;
+  border-radius: 5px;
+
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: #FFFFFF;
+  margin-bottom: 50px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: 1px solid #2196F3;
+    outline-offset: 2px;
+  }
+}

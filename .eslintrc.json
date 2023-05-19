@@ -3,17 +3,59 @@
         "browser": true,
         "es2021": true
     },
-    "extends": "plugin:react/recommended",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
     "overrides": [
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "@typescript-eslint"
+        "react", "react-hooks", "@typescript-eslint", "prettier"
     ],
     "rules": {
+        "react/react-in-jsx-scope": "off",
+        "camelcase": "error",
+        "spaced-comment": "error",
+        "quotes": ["error", "single"],
+        "no-duplicate-imports": "error"
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        },
+        "react": {
+            "createClass": "createReactClass",
+            "pragma": "React",
+            "fragment": "Fragment",
+            "version": "detect",
+            "flowVersion": "0.53"
+        },
+        "propWrapperFunctions": [
+            "forbidExtraProps",
+            {"property": "freeze", "object": "Object"},
+            {"property": "myFavoriteWrapper"},
+            {"property": "forbidExtraProps", "exact": true}
+        ],
+        "componentWrapperFunctions": [
+            "observer",
+            {"property": "styled"},
+            {"property": "observer", "object": "Mobx"},
+            {"property": "observer", "object": "<pragma>"}
+        ],
+        "formComponents": [
+            "CustomForm",
+            {"name": "Form", "formAttribute": "endpoint"}
+        ],
+        "linkComponents": [
+            "Hyperlink",
+            {"name": "Link", "linkAttribute": "to"}
+        ]
     }
 }
