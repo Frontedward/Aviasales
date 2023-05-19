@@ -1,7 +1,7 @@
-import Sidebar from './components/sidebar/Sidebar'
-import Main from './components/main/Main'
+import Sidebar from '../components/sidebar/Sidebar'
+import Main from '../components/main/Main'
 import styles from './App.module.scss'
-import logo from './assets/images/Logo.svg'
+import logo from '../assets/images/Logo.svg'
 
 function App() {
   return (

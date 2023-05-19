@@ -21,6 +21,7 @@ export interface TicketType {
     },
   ]
 }
+
 function Ticket({ carrier, price, segments }: TicketType) {
   return (
     <div className={styles.ticket}>
