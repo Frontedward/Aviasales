@@ -20,19 +20,10 @@
   text-transform: uppercase;
   color: #4A4A4A;
   user-select: none;
-  width: 135px;
+  width: 136px;
 
   &:focus-visible {
     outline: 1px solid #2196F3;
     outline-offset: 2px;
   }
 }
-
-input[type=radio]:focus + label {
-  outline: 2px dashed #000;
-}
-
-
-
-
-

@@ -1,18 +1,17 @@
 import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgress'
-import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
+import { Typography, Box } from '@mui/material'
 import { useEffect, useState } from 'react'
 
 function ProgressBar(props: LinearProgressProps & { value: number }) {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <Box sx={{ width: '100%', mr: 1 }}>
-        <LinearProgress variant='determinate' {...props} />
-      </Box>
-      <Box sx={{ minWidth: 35 }}>
-        <Typography variant='body2' color='text.secondary'>{`${Math.round(
-          props.value,
-        )}%`}</Typography>
+    <Box sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Open Sans' }}>
+      <Box sx={{ width: '100%' }}>
+        <Box sx={{ minWidth: 35 }}>
+          <Typography variant='body2' color='text.secondary' style={{ fontSize: 'smaller' }}>
+            {`Загружаем билеты, немного терпения, подождите ... ${Math.round(props.value)}%`}
+            <LinearProgress variant='determinate' {...props} />
+          </Typography>
+        </Box>
       </Box>
     </Box>
   )
@@ -24,7 +23,7 @@ export default function ProgressBarWithValueLabel() {
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) => (prevProgress >= 100 ? 100 : prevProgress + 10))
-    }, 1500)
+    }, 500)
     return () => {
       clearInterval(timer)
     }
